@@ -34,7 +34,7 @@ fi)])
 AC_DEFUN([NMS_CXX_11],
 [AC_MSG_CHECKING([whether $CXX is for C++11])
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([
-[#if __cplusplus != 201103
+[#if __cplusplus < 201103
 #error "C++11 is required"
 #endif
 ]])],
@@ -42,7 +42,7 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([
 [CXX_ORIG="$CXX"
 CXX="$CXX -std=c++11"
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([
-[#if __cplusplus != 201103
+[#if __cplusplus < 201103
 #error "C++11 is required"
 #endif
 ]])],
